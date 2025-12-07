@@ -50,10 +50,11 @@ def enhance_image(img_path: Path, enable: bool, save_path: Path | None) -> np.nd
     if not enable:
         return cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-    # Pipeline: Upscale -> Grayscale -> CLAHE -> Denoise -> Sharpen
+    # Pipeline: Upscale -> Grayscale -> CLAHE -> Denoise
+    # This avoids binary thresholding which can lose details in complex backgrounds
 
-    # 1. Upscale (3x) to improve recognition of small text
-    image = cv2.resize(image, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC)
+    # 1. Upscale (2x) to improve recognition of small text
+    image = cv2.resize(image, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
 
     # 2. Grayscale
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -73,9 +74,9 @@ def enhance_image(img_path: Path, enable: bool, save_path: Path | None) -> np.nd
 
     if save_path:
         save_path.parent.mkdir(parents=True, exist_ok=True)
-        cv2.imwrite(str(save_path), sharpened)
+        cv2.imwrite(str(save_path), denoised)
 
-    return cv2.cvtColor(sharpened, cv2.COLOR_GRAY2RGB)
+    return cv2.cvtColor(denoised, cv2.COLOR_GRAY2RGB)
 
 
 def write_output(lines: List[str], destination: Path) -> None:
