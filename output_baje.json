@@ -1,0 +1,69 @@
+{
+  "items": [
+    {
+      "text": "BATE SHALLED! (BC)",
+      "type": "english",
+      "confidence": 0.52
+    },
+    {
+      "text": "গৃত্তী বাহুলালে স্থান কর্ম<br>mmen of the People's Republic of Bangla<br>জাতীয় পরিচয়পত্র / National ID Card",
+      "type": "english",
+      "confidence": 0.817
+    },
+    {
+      "text": "NID NO.",
+      "type": "english",
+      "confidence": 0.918
+    },
+    {
+      "text": "210",
+      "type": "number",
+      "confidence": 0.409
+    },
+    {
+      "text": "Date of Birth 05 Feb 1997",
+      "type": "english",
+      "confidence": 0.997
+    },
+    {
+      "text": "100",
+      "type": "number",
+      "confidence": 0.331
+    },
+    {
+      "text": "실화",
+      "type": "mixed",
+      "confidence": 0.248
+    },
+    {
+      "text": "Name",
+      "type": "english",
+      "confidence": 0.85
+    },
+    {
+      "text": "वाविया त्रशय",
+      "type": "mixed",
+      "confidence": 0.86
+    },
+    {
+      "text": "নাঃ গোলাম মোন্তকা মোল্লা",
+      "type": "bangla",
+      "confidence": 0.919
+    },
+    {
+      "text": "MD GOLAM RABBANIE BABU",
+      "type": "english",
+      "confidence": 0.972
+    },
+    {
+      "text": "त्याः लानाय तायानी वार्",
+      "type": "mixed",
+      "confidence": 0.772
+    },
+    {
+      "text": "150 168 8459",
+      "type": "number",
+      "confidence": 0.995
+    }
+  ]
+}

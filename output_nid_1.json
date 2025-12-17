@@ -1,0 +1,59 @@
+{
+  "items": [
+    {
+      "text": "গণপ্রজাতন্ত্রী বাংলাদেশ সরকার<br>Government of the People's Republic of Bangladesh",
+      "type": "english",
+      "confidence": 0.987
+    },
+    {
+      "text": "জাতীয় পরিচয়পত্র / National ID Card",
+      "type": "bangla",
+      "confidence": 0.986
+    },
+    {
+      "text": "12 May 1975",
+      "type": "number",
+      "confidence": 0.995
+    },
+    {
+      "text": "রোমানী রহমান",
+      "type": "bangla",
+      "confidence": 0.988
+    },
+    {
+      "text": "Name",
+      "type": "english",
+      "confidence": 0.906
+    },
+    {
+      "text": "<b>ROMANA RAHMAN</b>",
+      "type": "english",
+      "confidence": 0.957
+    },
+    {
+      "text": "সোহরাব উদ্দীন খান",
+      "type": "bangla",
+      "confidence": 0.971
+    },
+    {
+      "text": "ফিরোজা বেগম",
+      "type": "bangla",
+      "confidence": 0.983
+    },
+    {
+      "text": "Date of Birth 12 May 1975",
+      "type": "english",
+      "confidence": 0.995
+    },
+    {
+      "text": "867 367 4936",
+      "type": "number",
+      "confidence": 0.998
+    },
+    {
+      "text": "CHAPAT DENTA NONE",
+      "type": "english",
+      "confidence": 0.719
+    }
+  ]
+}

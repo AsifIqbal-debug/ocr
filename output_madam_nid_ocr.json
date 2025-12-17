@@ -1,0 +1,95 @@
+{
+  "nid_number": {
+    "value": "6465186739",
+    "confidence": 0.95,
+    "raw": "ID NO: 6465186739"
+  },
+  "name_bangla": {
+    "value": "সুনেহরা ইসলাম",
+    "confidence": 0.72,
+    "raw": "সুনেহরা ইসলাম"
+  },
+  "name_english": {
+    "value": "SUNEHRA ISLAM",
+    "confidence": 0.95,
+    "raw": "Name: SUNEHRA ISLAM"
+  },
+  "father_name": {
+    "value": "শেখ সাইফুল ইসলাম",
+    "confidence": 0.9,
+    "raw": "পিতা: শেখ সাইফুল ইসলাম"
+  },
+  "mother_name": {
+    "value": null,
+    "confidence": 0.0,
+    "raw": null
+  },
+  "date_of_birth": {
+    "value": "1998-09-11",
+    "confidence": 0.95,
+    "raw": "Date of Birth: 11 Sep 1998"
+  },
+  "address": {
+    "full": null,
+    "confidence": 0.0
+  },
+  "accuracy": {
+    "overall": {
+      "fields_evaluated": 6,
+      "exact_matches": 5,
+      "exact_match_rate": 0.8333,
+      "avg_character_accuracy": 0.8333,
+      "avg_word_accuracy": 0.8333
+    },
+    "fields": {
+      "nid_number": {
+        "predicted": "6465186739",
+        "ground_truth": "6465186739",
+        "character_accuracy": 1.0,
+        "word_accuracy": 1.0,
+        "exact_match": true,
+        "edit_distance": 0
+      },
+      "date_of_birth": {
+        "predicted": "1998-09-11",
+        "ground_truth": "1998-09-11",
+        "character_accuracy": 1.0,
+        "word_accuracy": 1.0,
+        "exact_match": true,
+        "edit_distance": 0
+      },
+      "name_bangla": {
+        "predicted": "সুনেহরা ইসলাম",
+        "ground_truth": "সুনেহরা ইসলাম",
+        "character_accuracy": 1.0,
+        "word_accuracy": 1.0,
+        "exact_match": true,
+        "edit_distance": 0
+      },
+      "name_english": {
+        "predicted": "SUNEHRA ISLAM",
+        "ground_truth": "SUNEHRA ISLAM",
+        "character_accuracy": 1.0,
+        "word_accuracy": 1.0,
+        "exact_match": true,
+        "edit_distance": 0
+      },
+      "father_name": {
+        "predicted": "শেখ সাইফুল ইসলাম",
+        "ground_truth": "শেখ সাইফুল ইসলাম",
+        "character_accuracy": 1.0,
+        "word_accuracy": 1.0,
+        "exact_match": true,
+        "edit_distance": 0
+      },
+      "mother_name": {
+        "predicted": "",
+        "ground_truth": "ছাইদা ইসলাম",
+        "character_accuracy": 0.0,
+        "word_accuracy": 0.0,
+        "exact_match": false,
+        "edit_distance": 11
+      }
+    }
+  }
+}

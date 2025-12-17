@@ -1,0 +1,222 @@
+{
+  "items": [
+    {
+      "text": "(সিকজমনি ফরম-৩)",
+      "type": "bangla",
+      "confidence": 0.966
+    },
+    {
+      "text": "গণপ্ৰজাতন্ত্ৰী বাংলাদেশ",
+      "type": "bangla",
+      "confidence": 0.986
+    },
+    {
+      "text": "জন্ম ও মৃত্যু নিবন্ধকের কার্যালয়",
+      "type": "bangla",
+      "confidence": 0.998
+    },
+    {
+      "text": "অঞ্চল-১",
+      "type": "bangla",
+      "confidence": 0.985
+    },
+    {
+      "text": "গাজীপুর সিটি কর্পোরেশন, গাজীপুর",
+      "type": "bangla",
+      "confidence": 0.999
+    },
+    {
+      "text": "জন্ম সনদ",
+      "type": "bangla",
+      "confidence": 0.988
+    },
+    {
+      "text": "[বিধি- ৯, জনা ও মৃত্যু নিবন্ধন (সিটি কর্পোরেশন) বিধিমালা, ২০০৬] (জনা নিবন্ধন বহি হইতে উদ্ধৃত)",
+      "type": "bangla",
+      "confidence": 0.989
+    },
+    {
+      "text": "নিবন্ধন বহি নং ১ ৯",
+      "type": "bangla",
+      "confidence": 0.99
+    },
+    {
+      "text": "নিবন্ধনের তারিখ: ০৭-০২-২০১৭",
+      "type": "bangla",
+      "confidence": 0.996
+    },
+    {
+      "text": "সনদ ইস্যুর তারিখ: ০৭-০২-২০১৭",
+      "type": "bangla",
+      "confidence": 0.966
+    },
+    {
+      "text": "জना निवक्षन मन्नतः * ২",
+      "type": "bangla",
+      "confidence": 0.805,
+      "original": "জना निवक्षन मन्नतः * २",
+      "corrected": true
+    },
+    {
+      "text": "8",
+      "type": "number",
+      "confidence": 0.99
+    },
+    {
+      "text": "নামোঃ মোছা:উর্মি",
+      "type": "bangla",
+      "confidence": 0.996,
+      "original": "নাম: মোছা:উর্মি",
+      "corrected": true
+    },
+    {
+      "text": "জন্ম তারিখ: ২৭-১১-২০০৪",
+      "type": "bangla",
+      "confidence": 0.985
+    },
+    {
+      "text": "লিঙ্গ: নারী",
+      "type": "bangla",
+      "confidence": 0.944
+    },
+    {
+      "text": "সাতাশে নভেম্বর দুই হাজার চার",
+      "type": "bangla",
+      "confidence": 0.994
+    },
+    {
+      "text": "হো:৬৫,কাজী নজরুল ইসলাম রোড,পূর্ব আরিচপুর,ওয়ার্ড-৪৫,",
+      "type": "bangla",
+      "confidence": 0.99
+    },
+    {
+      "text": "জন্ম স্থান:",
+      "type": "bangla",
+      "confidence": 0.988
+    },
+    {
+      "text": "জোন-১,গা:সি:ক:গাজীপুর।",
+      "type": "bangla",
+      "confidence": 0.99
+    },
+    {
+      "text": "পিতার নামোঃ নজরুল ইসলাম",
+      "type": "bangla",
+      "confidence": 0.99,
+      "original": "পিতার নাম: নজরুল ইসলাম",
+      "corrected": true
+    },
+    {
+      "text": "জাতীয়তা: বাংলাদেশী",
+      "type": "bangla",
+      "confidence": 0.996
+    },
+    {
+      "text": "মাতার নামোঃ হোসনে আরা বেগম",
+      "type": "bangla",
+      "confidence": 0.997,
+      "original": "মাতার নাম: হোসনে আরা বেগম",
+      "corrected": true
+    },
+    {
+      "text": "জাতীয়তা: বাংলাদেশী",
+      "type": "bangla",
+      "confidence": 0.973
+    },
+    {
+      "text": "স্থায়ী ঠিকানা: হো:৬৫.কাজী নজরুল ইসলাম রোড,পূর্ব আরিচপুর,ওয়ার্ড-৪৫,",
+      "type": "bangla",
+      "confidence": 0.99
+    },
+    {
+      "text": "জোন-১,গা:সি:ক:গাজীপুর",
+      "type": "bangla",
+      "confidence": 0.967
+    },
+    {
+      "text": "বর্তমান ঠিকানা: হো:৬৫,কাজী নজকল ইসলাম রোড,পূর্ব আরিচপুর,ওয়ার্ড-৪৫,",
+      "type": "bangla",
+      "confidence": 0.994
+    },
+    {
+      "text": "জোন-১,গা:সি:ক:গাজীপুর।",
+      "type": "bangla",
+      "confidence": 0.981
+    },
+    {
+      "text": "HPR",
+      "type": "english",
+      "confidence": 0.283
+    },
+    {
+      "text": "চাইকারীর স্বাক্ষর",
+      "type": "bangla",
+      "confidence": 0.998
+    },
+    {
+      "text": "নাইসহ সীল)",
+      "type": "bangla",
+      "confidence": 0.926
+    },
+    {
+      "text": "নিবন্ধকের স্বাক্ষর ও নামসহ সীল)",
+      "type": "bangla",
+      "confidence": 0.975
+    },
+    {
+      "text": "30-03-2039",
+      "type": "number",
+      "confidence": 0.926
+    },
+    {
+      "text": "মোঃ আরসাদ হোসেন",
+      "type": "bangla",
+      "confidence": 0.916
+    },
+    {
+      "text": "শাহ আলম রিপন",
+      "type": "bangla",
+      "confidence": 0.997
+    },
+    {
+      "text": "স্যানিটারী ইন্সপেক্টর",
+      "type": "bangla",
+      "confidence": 0.993
+    },
+    {
+      "text": "৪৫নং ওয়ার্ড কাউন্সিলর",
+      "type": "bangla",
+      "confidence": 0.998
+    },
+    {
+      "text": "গাজীপুর সিটি কর্পোরেশন",
+      "type": "bangla",
+      "confidence": 0.995
+    },
+    {
+      "text": "গাজীপুর সিটি কর্পোরেশন",
+      "type": "bangla",
+      "confidence": 0.997
+    },
+    {
+      "text": "(निवक्तरकत कार्य",
+      "type": "mixed",
+      "confidence": 0.603
+    },
+    {
+      "text": "জোন-০১ (টঙ্গী) গাজীপুর।",
+      "type": "bangla",
+      "confidence": 0.958
+    },
+    {
+      "text": "- S.C. - 2.00 3",
+      "type": "english",
+      "confidence": 0.485
+    },
+    {
+      "text": "প্রথম চার অস্ক ব্যক্তির জন্ম সাল, পরবর্তা লাভ অন্ধ এরিয়া কোড ও শেষ ছয় অস্ক ধারা ক্রমিক।",
+      "type": "bangla",
+      "confidence": 0.95
+    }
+  ]
+}

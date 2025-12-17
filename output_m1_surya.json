@@ -1,0 +1,56 @@
+{
+  "items": [
+    {
+      "text": "গণপ্রজাতন্ত্রী বাংলাদেশ সরকার",
+      "type": "bangla",
+      "confidence": 0.998
+    },
+    {
+      "text": "nment of the People's Republic of Bangladesi",
+      "type": "english",
+      "confidence": 0.997
+    },
+    {
+      "text": "NATIONAL ID CARD / জাতীয় পরিচয় পত্র",
+      "type": "bangla",
+      "confidence": 0.989
+    },
+    {
+      "text": "নাম जानाजून जावित",
+      "type": "mixed",
+      "confidence": 0.863,
+      "original": "नाम जानाजून जावित",
+      "corrected": true
+    },
+    {
+      "text": "Name: Jannatul Abir",
+      "type": "english",
+      "confidence": 0.995
+    },
+    {
+      "text": "পিতা: আবির হোসেন কিরন",
+      "type": "bangla",
+      "confidence": 0.997
+    },
+    {
+      "text": "মাতা: নাহিদা বেগম শিউলি",
+      "type": "bangla",
+      "confidence": 0.979
+    },
+    {
+      "text": "Date of Birth: 06 Oct 2004",
+      "type": "english",
+      "confidence": 0.99
+    },
+    {
+      "text": "Jannetel Ale",
+      "type": "english",
+      "confidence": 0.838
+    },
+    {
+      "text": "ID NO: 6008003870",
+      "type": "number",
+      "confidence": 0.979
+    }
+  ]
+}

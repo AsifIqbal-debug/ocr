@@ -1,0 +1,59 @@
+{
+  "items": [
+    {
+      "text": "গণপ্রজাতন্ত্রী বাংলাদেশ সরকার",
+      "type": "bangla",
+      "confidence": 0.999
+    },
+    {
+      "text": "Government of the People's Republic of Bangladesh",
+      "type": "english",
+      "confidence": 0.999
+    },
+    {
+      "text": "National ID Card / জাতীয় পরিচয় পত্র",
+      "type": "bangla",
+      "confidence": 0.988
+    },
+    {
+      "text": "यिक्री देयिष्याक जोर्त्यम",
+      "type": "mixed",
+      "confidence": 0.678
+    },
+    {
+      "text": "নাম:",
+      "type": "bangla",
+      "confidence": 0.912
+    },
+    {
+      "text": "Name: MIRZA IMTIAZ AHMED",
+      "type": "english",
+      "confidence": 0.994
+    },
+    {
+      "text": "পিতা: মির্জা মোঃ জাকির হোসাইন",
+      "type": "bangla",
+      "confidence": 0.987
+    },
+    {
+      "text": "মাতা: মোছাঃ রোকেয়া বেগম",
+      "type": "bangla",
+      "confidence": 0.981
+    },
+    {
+      "text": "Shap",
+      "type": "english",
+      "confidence": 0.488
+    },
+    {
+      "text": "Date of Birth: 18 May 1998",
+      "type": "english",
+      "confidence": 0.998
+    },
+    {
+      "text": "ID NO: 9593515159",
+      "type": "number",
+      "confidence": 0.991
+    }
+  ]
+}

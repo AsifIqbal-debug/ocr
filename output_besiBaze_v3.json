@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "text": "भगशकां उद्यो याः नारमं भरकार",
+      "type": "mixed",
+      "confidence": 0.713
+    },
+    {
+      "text": "Government of the People's Republic of Bangladesh",
+      "type": "english",
+      "confidence": 0.996
+    },
+    {
+      "text": "NATIONAL ID CARD / खाजीय नितिष्य नव",
+      "type": "english",
+      "confidence": 0.867
+    },
+    {
+      "text": "नाय: ध्याः शियाम छिलिन",
+      "type": "mixed",
+      "confidence": 0.724
+    },
+    {
+      "text": "Name: Må Giusuddin",
+      "type": "english",
+      "confidence": 0.949
+    },
+    {
+      "text": "পিতা: আঃ রামজ উদ্দিন ভুইয়া",
+      "type": "bangla",
+      "confidence": 0.829
+    },
+    {
+      "text": "মাতা: মোসাঃ শিলুকা কোম",
+      "type": "bangla",
+      "confidence": 0.79
+    },
+    {
+      "text": "Date of Birth: 10 Oct 1981",
+      "type": "english",
+      "confidence": 0.993
+    },
+    {
+      "text": "ID NO: 1914059277619",
+      "type": "number",
+      "confidence": 0.994
+    }
+  ]
+}

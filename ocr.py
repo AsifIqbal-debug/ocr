@@ -1,4 +1,5 @@
 import argparse
+import json
 from pathlib import Path
 from typing import List
 
@@ -14,7 +15,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "image",
         nargs="?",
-        default="test.jpg",
+        default="Mijja.jpeg",
         help="Path to the image file (default: %(default)s)",
     )
     parser.add_argument(
@@ -30,8 +31,34 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("output.txt"),
+        default=Path("output2.txt"),
         help="File path to write extracted text (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--engine",
+        choices=["easyocr", "paddle"],
+        default="easyocr",
+        help="OCR backend to invoke (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--paddle-det",
+        type=Path,
+        help="Optional path to PaddleOCR detection inference model directory",
+    )
+    parser.add_argument(
+        "--paddle-rec",
+        type=Path,
+        help="Optional path to PaddleOCR recognition inference model directory",
+    )
+    parser.add_argument(
+        "--paddle-dict",
+        type=Path,
+        help="Character dictionary to match the fine-tuned Paddle recognition model",
+    )
+    parser.add_argument(
+        "--paddle-angle",
+        action="store_true",
+        help="Enable direction classifier when using PaddleOCR",
     )
     args = parser.parse_args()
     args.image = Path(args.image).expanduser().resolve()
@@ -66,12 +93,6 @@ def enhance_image(img_path: Path, enable: bool, save_path: Path | None) -> np.nd
     # 4. Denoise (Non-local means is good for removing grain while keeping edges)
     denoised = cv2.fastNlMeansDenoising(enhanced, None, 10, 7, 21)
 
-    # 5. Sharpening to define edges better after upscaling/denoising
-    kernel = np.array([[0, -1, 0],
-                       [-1, 5, -1],
-                       [0, -1, 0]])
-    sharpened = cv2.filter2D(denoised, -1, kernel)
-
     if save_path:
         save_path.parent.mkdir(parents=True, exist_ok=True)
         cv2.imwrite(str(save_path), denoised)
@@ -79,7 +100,36 @@ def enhance_image(img_path: Path, enable: bool, save_path: Path | None) -> np.nd
     return cv2.cvtColor(denoised, cv2.COLOR_GRAY2RGB)
 
 
+import re
+
+def classify_text(text: str) -> str:
+    # Count character types
+    bangla_count = len(re.findall(r'[\u0980-\u09FF]', text))
+    english_count = len(re.findall(r'[a-zA-Z]', text))
+    digit_count = len(re.findall(r'[0-9]', text))
+    
+    total = len(text.replace(" ", ""))
+    if total == 0:
+        return "unknown"
+    
+    # Determine dominant type
+    if digit_count > total * 0.5:
+        return "number"
+    if bangla_count > english_count:
+        return "bangla"
+    if english_count > bangla_count:
+        return "english"
+    return "mixed"
+
 def write_output(lines: List[str], destination: Path) -> None:
+    items = []
+    for line in lines:
+        items.append({
+            "text": line,
+            "type": classify_text(line)
+        })
+    
+    payload = {"items": items}
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text("\n".join(lines), encoding="utf-8")
 

@@ -1,0 +1,23 @@
+# Training requirements for NID OCR Fine-Tuning
+# ==============================================
+# Install with: pip install -r requirements-train.txt
+
+# Core ML
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Data handling
+lmdb>=1.4.0
+Pillow>=9.0.0
+numpy>=1.21.0
+opencv-python>=4.5.0
+
+# Utilities
+tqdm>=4.64.0
+
+# Optional: For GPU training (CUDA 11.8)
+# pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+
+# Optional: For GPU training (CUDA 12.1)
+# pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+

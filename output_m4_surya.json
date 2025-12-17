@@ -1,0 +1,86 @@
+{
+  "items": [
+    {
+      "text": "এই কার্ডটি গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের সম্পত্তি। কার্ডটি ব্যবহারকারী ব্যতীত অন্য",
+      "type": "bangla",
+      "confidence": 0.99
+    },
+    {
+      "text": "কোথাও পাওয়া গেলে নিকটছ পোন্ট অফিসে জমা দেবার জন্য অনুরোধ করা হলো।",
+      "type": "bangla",
+      "confidence": 0.967
+    },
+    {
+      "text": "গণপ্রজাতন্ত্রী বাংলাদেশ সরকার Government of the People's Republic of Bangladesh",
+      "type": "english",
+      "confidence": 0.99
+    },
+    {
+      "text": "ঠিকানা: বাসা/হোন্ডিং: ৫৪৫, গ্রাম/রান্তা: ব্রাক মার্কেট, পুরাকৈর, ভাকঘর: আজমপুর - ১২৩০, দক্ষিণখান, ঢাকা উত্তর সিটি কর্পোরেশন, ঢাকা",
+      "type": "bangla",
+      "confidence": 0.92
+    },
+    {
+      "text": "National ID Card / জাতীয় পরিচয় পত্র",
+      "type": "bangla",
+      "confidence": 0.985
+    },
+    {
+      "text": "লামিয়া হক মুনা",
+      "type": "bangla",
+      "confidence": 0.957
+    },
+    {
+      "text": "নামোঃ",
+      "type": "bangla",
+      "confidence": 0.961,
+      "original": "নাম:",
+      "corrected": true
+    },
+    {
+      "text": "রভের গ্রুপ / Blood Group: A+ জন্মছান: বরিশাল",
+      "type": "bangla",
+      "confidence": 0.956
+    },
+    {
+      "text": "Name: LAMIA HAQUE MUNNA",
+      "type": "english",
+      "confidence": 0.992
+    },
+    {
+      "text": "প্রদানের তারিব: ২৫/১২/২০২৩",
+      "type": "bangla",
+      "confidence": 0.946
+    },
+    {
+      "text": "পিতা: মোঃ সহিদূল হক",
+      "type": "bangla",
+      "confidence": 0.995
+    },
+    {
+      "text": "প্রদানকারী কর্তৃপক্ষের স্বাক্ষর",
+      "type": "bangla",
+      "confidence": 0.998
+    },
+    {
+      "text": "মাতা: মমতাজ বেগম",
+      "type": "bangla",
+      "confidence": 0.989
+    },
+    {
+      "text": "लाकिका",
+      "type": "mixed",
+      "confidence": 0.386
+    },
+    {
+      "text": "Date of Birth: 03 May 2003",
+      "type": "english",
+      "confidence": 0.998
+    },
+    {
+      "text": "ID NO: 9164887672",
+      "type": "number",
+      "confidence": 0.997
+    }
+  ]
+}

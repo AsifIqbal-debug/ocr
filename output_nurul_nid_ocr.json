@@ -1,0 +1,36 @@
+{
+  "nid_number": {
+    "value": "1910912283982",
+    "confidence": 0.95,
+    "raw": "ID NO: 1910912283982"
+  },
+  "name_bangla": {
+    "value": "নুরুল ইসলাম",
+    "confidence": 0.9,
+    "raw": "নাম: নুরুল ইসলাম"
+  },
+  "name_english": {
+    "value": "NURUL ISLAM",
+    "confidence": 0.95,
+    "raw": "Name: Nurul Islam"
+  },
+  "father_name": {
+    "value": "ইদ্রিস মিয়া",
+    "confidence": 0.9,
+    "raw": "পিতা: ইদ্রিস মিয়া"
+  },
+  "mother_name": {
+    "value": "রোকেয়া বেগম",
+    "confidence": 0.0,
+    "raw": "রোকেয়া বেগম"
+  },
+  "date_of_birth": {
+    "value": "1985-05-15",
+    "confidence": 0.95,
+    "raw": "Date of Birth: 15 May 1985"
+  },
+  "address": {
+    "full": null,
+    "confidence": 0.0
+  }
+}

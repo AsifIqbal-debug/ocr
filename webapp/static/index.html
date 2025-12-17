@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh NID OCR</title>
+    <style>
+        :root {
+            /* Dark Theme (default) */
+            --bg-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --bg-input: rgba(0, 0, 0, 0.3);
+            --text-primary: #fff;
+            --text-secondary: #888;
+            --text-muted: #666;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-dashed: rgba(255, 255, 255, 0.3);
+            --accent-primary: #00d4ff;
+            --accent-secondary: #00ff88;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --bg-input: rgba(0, 0, 0, 0.05);
+            --text-primary: #1a1a2e;
+            --text-secondary: #555;
+            --text-muted: #888;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --border-dashed: rgba(0, 0, 0, 0.2);
+            --accent-primary: #0099cc;
+            --accent-secondary: #00aa66;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            color: var(--text-primary);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 30px;
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-primary);
+        }
+
+        .theme-toggle .icon {
+            font-size: 1.2rem;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle .sun { display: none; }
+        .theme-toggle .moon { display: flex; }
+
+        [data-theme="light"] .theme-toggle .sun { display: flex; }
+        [data-theme="light"] .theme-toggle .moon { display: none; }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+            }
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 40px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2 .icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Upload Area */
+        .upload-area {
+            border: 2px dashed var(--border-dashed);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .upload-area:hover {
+            border-color: var(--accent-primary);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .upload-area.dragover {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .upload-area svg {
+            width: 60px;
+            height: 60px;
+            fill: var(--accent-primary);
+            margin-bottom: 15px;
+        }
+
+        .upload-area p {
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        /* Preview */
+        .preview-container {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        .preview-container.active {
+            display: block;
+        }
+
+        .preview-container img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .file-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: var(--bg-input);
+            border-radius: 10px;
+        }
+
+        .file-info .name {
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+
+        .file-info .size {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .remove-file {
+            background: #ff4757;
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Model Selection */
+        .model-selection {
+            margin-bottom: 20px;
+        }
+
+        .model-selection label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+        }
+
+        .model-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .model-option {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            background: var(--bg-input);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .model-option:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .model-option.selected {
+            border-color: var(--accent-primary);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .model-option input {
+            display: none;
+        }
+
+        .model-option .radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--text-secondary);
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .model-option.selected .radio {
+            border-color: var(--accent-primary);
+        }
+
+        .model-option.selected .radio::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+        }
+
+        .model-info h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .model-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .model-badge {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .badge-structured {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .badge-lines {
+            background: #00d4ff;
+            color: #000;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #000;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Results Area */
+        .results-card {
+            min-height: 500px;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--accent-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .results-content {
+            display: none;
+        }
+
+        .results-content.active {
+            display: block;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .results-header .model-name {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .results-header .time {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Structured Results (NID OCR) */
+        .structured-results {
+            display: none;
+        }
+
+        .structured-results.active {
+            display: block;
+        }
+
+        .field-item {
+            padding: 15px;
+            background: var(--bg-input);
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .field-item .field-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .field-item .field-value {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            word-break: break-word;
+        }
+
+        .field-item .field-value.null {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .confidence-badge {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .conf-high { background: #00ff88; color: #000; }
+        .conf-medium { background: #ffa502; color: #000; }
+        .conf-low { background: #ff4757; color: #fff; }
+
+        /* Lines Results (Surya/EasyOCR) */
+        .lines-results {
+            display: none;
+        }
+
+        .lines-results.active {
+            display: block;
+        }
+
+        .text-line {
+            padding: 12px 15px;
+            background: var(--bg-input);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .text-line .text {
+            flex: 1;
+            word-break: break-word;
+        }
+
+        .text-line .meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 5px;
+            flex-shrink: 0;
+        }
+
+        .type-badge {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+
+        .type-bangla { background: #9b59b6; }
+        .type-english { background: #3498db; }
+        .type-number { background: #e67e22; }
+        .type-mixed { background: #1abc9c; }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 50px;
+            color: var(--text-muted);
+        }
+
+        .empty-state svg {
+            width: 80px;
+            height: 80px;
+            fill: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* Copy Button */
+        .copy-btn {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--border-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇧🇩 Bangladesh NID OCR</h1>
+            <p>Extract text from National ID Cards using AI-powered OCR</p>
+            <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+                <span class="icon sun">☀️</span>
+                <span class="icon moon">🌙</span>
+            </button>
+        </header>
+
+        <div class="main-content">
+            <!-- Upload Card -->
+            <div class="card">
+                <h2>
+                    <span class="icon">📤</span>
+                    Upload NID Image
+                </h2>
+
+                <div class="upload-area" id="uploadArea">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                    </svg>
+                    <p><strong>Click to upload</strong> or drag and drop</p>
+                    <p>JPEG, PNG (Max 10MB)</p>
+                    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/jpg">
+                </div>
+
+                <div class="preview-container" id="previewContainer">
+                    <img id="previewImage" src="" alt="Preview">
+                    <div class="file-info">
+                        <div>
+                            <span class="name" id="fileName"></span>
+                            <span class="size" id="fileSize"></span>
+                        </div>
+                        <button class="remove-file" id="removeFile">Remove</button>
+                    </div>
+                </div>
+
+                <div class="model-selection">
+                    <label>Select OCR Model:</label>
+                    <div class="model-options">
+                        <label class="model-option selected" data-model="nid_ocr">
+                            <input type="radio" name="model" value="nid_ocr" checked>
+                            <span class="radio"></span>
+                            <div class="model-info">
+                                <h3>NID OCR Pipeline <span class="model-badge badge-structured">Structured</span></h3>
+                                <p>Best for NID cards. Returns name, father, mother, DOB, NID number as separate fields.</p>
+                            </div>
+                        </label>
+                        <label class="model-option" data-model="surya">
+                            <input type="radio" name="model" value="surya">
+                            <span class="radio"></span>
+                            <div class="model-info">
+                                <h3>Surya OCR <span class="model-badge badge-lines">Lines</span></h3>
+                                <p>High accuracy multilingual OCR. Returns all detected text lines.</p>
+                            </div>
+                        </label>
+                        <label class="model-option" data-model="easyocr">
+                            <input type="radio" name="model" value="easyocr">
+                            <span class="radio"></span>
+                            <div class="model-info">
+                                <h3>EasyOCR <span class="model-badge badge-lines">Lines</span></h3>
+                                <p>Fast CPU-based OCR. Good for quick text extraction.</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="submit-btn" id="submitBtn" disabled>
+                    🔍 Extract Text
+                </button>
+            </div>
+
+            <!-- Results Card -->
+            <div class="card results-card">
+                <h2>
+                    <span class="icon">📄</span>
+                    OCR Results
+                </h2>
+
+                <div class="empty-state" id="emptyState">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                    <p>Upload an image to see OCR results</p>
+                </div>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Processing image...</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 10px;">This may take a few seconds</p>
+                </div>
+
+                <div class="results-content" id="resultsContent">
+                    <div class="results-header">
+                        <div>
+                            <span class="model-name" id="resultModel"></span>
+                            <span class="time" id="resultTime"></span>
+                        </div>
+                        <button class="copy-btn" id="copyBtn">📋 Copy JSON</button>
+                    </div>
+
+                    <!-- Structured Results (NID OCR) -->
+                    <div class="structured-results" id="structuredResults">
+                        <div class="field-item">
+                            <div class="field-label">
+                                <span>NID Number</span>
+                                <span class="confidence-badge" id="confNid"></span>
+                            </div>
+                            <div class="field-value" id="valNid"></div>
+                        </div>
+                        <div class="field-item">
+                            <div class="field-label">
+                                <span>Name (Bangla)</span>
+                                <span class="confidence-badge" id="confNameBn"></span>
+                            </div>
+                            <div class="field-value" id="valNameBn"></div>
+                        </div>
+                        <div class="field-item">
+                            <div class="field-label">
+                                <span>Name (English)</span>
+                                <span class="confidence-badge" id="confNameEn"></span>
+                            </div>
+                            <div class="field-value" id="valNameEn"></div>
+                        </div>
+                        <div class="field-item">
+                            <div class="field-label">
+                                <span>Father's Name</span>
+                                <span class="confidence-badge" id="confFather"></span>
+                            </div>
+                            <div class="field-value" id="valFather"></div>
+                        </div>
+                        <div class="field-item">
+                            <div class="field-label">
+                                <span>Mother's Name</span>
+                                <span class="confidence-badge" id="confMother"></span>
+                            </div>
+                            <div class="field-value" id="valMother"></div>
+                        </div>
+                        <div class="field-item">
+                            <div class="field-label">
+                                <span>Date of Birth</span>
+                                <span class="confidence-badge" id="confDob"></span>
+                            </div>
+                            <div class="field-value" id="valDob"></div>
+                        </div>
+                    </div>
+
+                    <!-- Lines Results (Surya/EasyOCR) -->
+                    <div class="lines-results" id="linesResults"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Bangladesh NID OCR • Powered by Surya, EasyOCR & FastAPI</p>
+        </footer>
+    </div>
+
+    <script>
+        // DOM Elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewContainer = document.getElementById('previewContainer');
+        const previewImage = document.getElementById('previewImage');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        const removeFile = document.getElementById('removeFile');
+        const submitBtn = document.getElementById('submitBtn');
+        const modelOptions = document.querySelectorAll('.model-option');
+        const emptyState = document.getElementById('emptyState');
+        const loading = document.getElementById('loading');
+        const resultsContent = document.getElementById('resultsContent');
+        const structuredResults = document.getElementById('structuredResults');
+        const linesResults = document.getElementById('linesResults');
+        const copyBtn = document.getElementById('copyBtn');
+
+        let selectedFile = null;
+        let selectedModel = 'nid_ocr';
+        let lastResult = null;
+
+        // Upload Area Events
+        uploadArea.addEventListener('click', () => fileInput.click());
+        
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length) handleFile(files[0]);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) handleFile(e.target.files[0]);
+        });
+
+        removeFile.addEventListener('click', () => {
+            selectedFile = null;
+            fileInput.value = '';
+            previewContainer.classList.remove('active');
+            uploadArea.style.display = 'block';
+            submitBtn.disabled = true;
+        });
+
+        // Model Selection
+        modelOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                modelOptions.forEach(o => o.classList.remove('selected'));
+                option.classList.add('selected');
+                selectedModel = option.dataset.model;
+                option.querySelector('input').checked = true;
+            });
+        });
+
+        // File Handling
+        function handleFile(file) {
+            if (!file.type.match('image/(jpeg|png|jpg)')) {
+                alert('Please upload a JPEG or PNG image');
+                return;
+            }
+            
+            if (file.size > 10 * 1024 * 1024) {
+                alert('File size must be less than 10MB');
+                return;
+            }
+
+            selectedFile = file;
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImage.src = e.target.result;
+                fileName.textContent = file.name;
+                fileSize.textContent = formatFileSize(file.size);
+                previewContainer.classList.add('active');
+                uploadArea.style.display = 'none';
+                submitBtn.disabled = false;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+
+        // Submit OCR
+        submitBtn.addEventListener('click', async () => {
+            if (!selectedFile) return;
+
+            // Show loading
+            emptyState.style.display = 'none';
+            resultsContent.classList.remove('active');
+            loading.classList.add('active');
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData();
+                formData.append('file', selectedFile);
+                formData.append('model', selectedModel);
+
+                console.log('Sending OCR request with model:', selectedModel);
+
+                const response = await fetch('/api/ocr', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                console.log('Response status:', response.status);
+
+                const result = await response.json();
+                console.log('OCR Result:', result);
+
+                if (!response.ok) {
+                    throw new Error(result.detail || 'OCR failed');
+                }
+
+                lastResult = result;
+                displayResults(result);
+
+            } catch (error) {
+                console.error('OCR Error:', error);
+                alert('Error: ' + error.message);
+                emptyState.style.display = 'block';
+            } finally {
+                loading.classList.remove('active');
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Display Results
+        function displayResults(result) {
+            document.getElementById('resultModel').textContent = result.model;
+            document.getElementById('resultTime').textContent = 
+                `• ${result.metadata.processing_time_seconds}s`;
+
+            if (result.type === 'structured') {
+                displayStructuredResults(result.data);
+            } else {
+                displayLinesResults(result.data);
+            }
+
+            resultsContent.classList.add('active');
+        }
+
+        function displayStructuredResults(data) {
+            structuredResults.classList.add('active');
+            linesResults.classList.remove('active');
+
+            setFieldValue('Nid', data.nid_number);
+            setFieldValue('NameBn', data.name_bangla);
+            setFieldValue('NameEn', data.name_english);
+            setFieldValue('Father', data.father_name);
+            setFieldValue('Mother', data.mother_name);
+            setFieldValue('Dob', data.date_of_birth);
+        }
+
+        function setFieldValue(field, fieldData) {
+            const valEl = document.getElementById('val' + field);
+            const confEl = document.getElementById('conf' + field);
+
+            if (fieldData && fieldData.value) {
+                valEl.textContent = fieldData.value;
+                valEl.classList.remove('null');
+                
+                const conf = fieldData.confidence || 0;
+                confEl.textContent = Math.round(conf * 100) + '%';
+                confEl.className = 'confidence-badge ' + getConfClass(conf);
+            } else {
+                valEl.textContent = 'Not detected';
+                valEl.classList.add('null');
+                confEl.textContent = '0%';
+                confEl.className = 'confidence-badge conf-low';
+            }
+        }
+
+        function getConfClass(conf) {
+            if (conf >= 0.8) return 'conf-high';
+            if (conf >= 0.5) return 'conf-medium';
+            return 'conf-low';
+        }
+
+        function displayLinesResults(data) {
+            structuredResults.classList.remove('active');
+            linesResults.classList.add('active');
+
+            const items = data.items || [];
+            linesResults.innerHTML = items.map(item => `
+                <div class="text-line">
+                    <span class="text">${escapeHtml(item.text)}</span>
+                    <div class="meta">
+                        <span class="type-badge type-${item.type}">${item.type}</span>
+                        <span class="confidence-badge ${getConfClass(item.confidence)}">
+                            ${Math.round(item.confidence * 100)}%
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Copy JSON
+        copyBtn.addEventListener('click', () => {
+            if (lastResult) {
+                navigator.clipboard.writeText(JSON.stringify(lastResult, null, 2))
+                    .then(() => {
+                        copyBtn.textContent = '✓ Copied!';
+                        setTimeout(() => copyBtn.textContent = '📋 Copy JSON', 2000);
+                    });
+            }
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // Load saved theme or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "nid_number": {
+    "value": "1914059277619",
+    "confidence": 0.95,
+    "raw": "ID NO: 1914059277619"
+  },
+  "name_bangla": {
+    "value": null,
+    "confidence": 0.0,
+    "raw": null
+  },
+  "name_english": {
+    "value": "M GIUSUDDIN",
+    "confidence": 0.95,
+    "raw": "Name: Må Giusuddin"
+  },
+  "father_name": {
+    "value": "আঃ রামজ উদ্দিন ভুইয়া",
+    "confidence": 0.83,
+    "raw": "পিতা: আঃ রামজ উদ্দিন ভুইয়া"
+  },
+  "mother_name": {
+    "value": "মোসাঃ শিলুকা কোম",
+    "confidence": 0.79,
+    "raw": "মাতা: মোসাঃ শিলুকা কোম"
+  },
+  "date_of_birth": {
+    "value": "1981-10-10",
+    "confidence": 0.95,
+    "raw": "Date of Birth: 10 Oct 1981"
+  },
+  "address": {
+    "full": null,
+    "confidence": 0.0
+  }
+}

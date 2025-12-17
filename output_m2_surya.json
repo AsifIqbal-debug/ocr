@@ -1,0 +1,59 @@
+{
+  "items": [
+    {
+      "text": "গণপ্রজাতপ্রী বাংলাদেশ সরকার",
+      "type": "bangla",
+      "confidence": 0.979
+    },
+    {
+      "text": "the roop",
+      "type": "english",
+      "confidence": 0.925
+    },
+    {
+      "text": "ভাতীয় পরিচয়পত্র / National ID Card",
+      "type": "bangla",
+      "confidence": 0.972
+    },
+    {
+      "text": "মৌসুমী আক্তার",
+      "type": "bangla",
+      "confidence": 0.97
+    },
+    {
+      "text": "Vame",
+      "type": "english",
+      "confidence": 0.756
+    },
+    {
+      "text": "MOUSUME AKTER",
+      "type": "english",
+      "confidence": 0.965
+    },
+    {
+      "text": "মোঃ সহিদ্লাহ",
+      "type": "bangla",
+      "confidence": 0.92
+    },
+    {
+      "text": "আরজুদা বেগম",
+      "type": "bangla",
+      "confidence": 0.977
+    },
+    {
+      "text": "Date of Birth 28 Oct 1997",
+      "type": "english",
+      "confidence": 0.991
+    },
+    {
+      "text": "870 523 3362",
+      "type": "number",
+      "confidence": 0.995
+    },
+    {
+      "text": "NID No.",
+      "type": "english",
+      "confidence": 0.985
+    }
+  ]
+}

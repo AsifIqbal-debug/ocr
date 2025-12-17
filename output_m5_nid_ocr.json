@@ -1,0 +1,36 @@
+{
+  "nid_number": {
+    "value": "9111513983",
+    "confidence": 0.95,
+    "raw": "NID No. 911 151 3983"
+  },
+  "name_bangla": {
+    "value": "তাসলিমা আক্তার",
+    "confidence": 0.72,
+    "raw": "তাসলিমা আক্তার"
+  },
+  "name_english": {
+    "value": "TASLIMA AKHTER",
+    "confidence": 0.95,
+    "raw": "TASLIMA AKHTER"
+  },
+  "father_name": {
+    "value": null,
+    "confidence": 0.0,
+    "raw": null
+  },
+  "mother_name": {
+    "value": null,
+    "confidence": 0.0,
+    "raw": null
+  },
+  "date_of_birth": {
+    "value": "1994-12-31",
+    "confidence": 0.95,
+    "raw": "Date of Birth 31 Dec 1994"
+  },
+  "address": {
+    "full": null,
+    "confidence": 0.0
+  }
+}

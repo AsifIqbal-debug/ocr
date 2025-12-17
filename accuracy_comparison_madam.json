@@ -1,0 +1,185 @@
+{
+  "image": "madam.jpg",
+  "ground_truth": {
+    "nid_number": "6465186739",
+    "name_bangla": "সুনেহরা ইসলাম",
+    "name_english": "SUNEHRA ISLAM",
+    "father_name": "শেখ সাইফুল ইসলাম",
+    "mother_name": "ছাইদা ইসলাম",
+    "date_of_birth": "11 Sep 1998"
+  },
+  "results": {
+    "easyocr": {
+      "model_name": "EasyOCR (ocr.py)",
+      "total_time": 23990.55934715271,
+      "fields": {
+        "nid_number": {
+          "exact_match": true,
+          "character_accuracy": 1.0,
+          "word_accuracy": 1.0,
+          "levenshtein_distance": 0,
+          "predicted": "6465186739",
+          "ground_truth": "6465186739"
+        },
+        "name_bangla": {
+          "exact_match": false,
+          "character_accuracy": 0.7692307692307693,
+          "word_accuracy": 0.0,
+          "levenshtein_distance": 3,
+          "predicted": "সুনেহবা ইসশীম",
+          "ground_truth": "সুনেহরা ইসলাম"
+        },
+        "name_english": {
+          "exact_match": true,
+          "character_accuracy": 1.0,
+          "word_accuracy": 1.0,
+          "levenshtein_distance": 0,
+          "predicted": "SUNEHRA ISLAM",
+          "ground_truth": "SUNEHRA ISLAM"
+        },
+        "father_name": {
+          "exact_match": false,
+          "character_accuracy": 0.0,
+          "word_accuracy": 0.0,
+          "levenshtein_distance": 16,
+          "predicted": ":",
+          "ground_truth": "শেখ সাইফুল ইসলাম"
+        },
+        "mother_name": {
+          "exact_match": false,
+          "character_accuracy": 0.0,
+          "word_accuracy": 0.0,
+          "levenshtein_distance": 11,
+          "predicted": ":",
+          "ground_truth": "ছাইদা ইসলাম"
+        },
+        "date_of_birth": {
+          "exact_match": false,
+          "character_accuracy": 0.7777777777777778,
+          "word_accuracy": 0.6666666666666666,
+          "levenshtein_distance": 4,
+          "predicted": "11 1998",
+          "ground_truth": "11 Sep 1998"
+        }
+      },
+      "overall_char_accuracy": 0.5911680911680911,
+      "overall_word_accuracy": 0.4444444444444444,
+      "overall_exact_match_rate": 0.3333333333333333
+    },
+    "surya": {
+      "model_name": "Surya (ocr_surya.py)",
+      "total_time": 180.7787311077118,
+      "fields": {
+        "nid_number": {
+          "exact_match": true,
+          "character_accuracy": 1.0,
+          "word_accuracy": 1.0,
+          "levenshtein_distance": 0,
+          "predicted": "6465186739",
+          "ground_truth": "6465186739"
+        },
+        "name_bangla": {
+          "exact_match": false,
+          "character_accuracy": 0.0,
+          "word_accuracy": 0.0,
+          "levenshtein_distance": 13,
+          "predicted": ":",
+          "ground_truth": "সুনেহরা ইসলাম"
+        },
+        "name_english": {
+          "exact_match": true,
+          "character_accuracy": 1.0,
+          "word_accuracy": 1.0,
+          "levenshtein_distance": 0,
+          "predicted": "SUNEHRA ISLAM",
+          "ground_truth": "SUNEHRA ISLAM"
+        },
+        "father_name": {
+          "exact_match": true,
+          "character_accuracy": 1.0,
+          "word_accuracy": 1.0,
+          "levenshtein_distance": 0,
+          "predicted": "শেখ সাইফুল ইসলাম",
+          "ground_truth": "শেখ সাইফুল ইসলাম"
+        },
+        "mother_name": {
+          "exact_match": false,
+          "character_accuracy": 0.0,
+          "word_accuracy": 0.0,
+          "levenshtein_distance": 11,
+          "predicted": ":",
+          "ground_truth": "ছাইদা ইসলাম"
+        },
+        "date_of_birth": {
+          "exact_match": true,
+          "character_accuracy": 1.0,
+          "word_accuracy": 1.0,
+          "levenshtein_distance": 0,
+          "predicted": "11 Sep 1998",
+          "ground_truth": "11 Sep 1998"
+        }
+      },
+      "overall_char_accuracy": 0.6666666666666666,
+      "overall_word_accuracy": 0.6666666666666666,
+      "overall_exact_match_rate": 0.6666666666666666
+    },
+    "nid_ocr": {
+      "model_name": "NID Pipeline (nid_ocr.py)",
+      "total_time": 187.65786123275757,
+      "fields": {
+        "nid_number": {
+          "exact_match": true,
+          "character_accuracy": 1.0,
+          "word_accuracy": 1.0,
+          "levenshtein_distance": 0,
+          "predicted": "6465186739",
+          "ground_truth": "6465186739"
+        },
+        "name_bangla": {
+          "exact_match": true,
+          "character_accuracy": 1.0,
+          "word_accuracy": 1.0,
+          "levenshtein_distance": 0,
+          "predicted": "সুনেহরা ইসলাম",
+          "ground_truth": "সুনেহরা ইসলাম"
+        },
+        "name_english": {
+          "exact_match": true,
+          "character_accuracy": 1.0,
+          "word_accuracy": 1.0,
+          "levenshtein_distance": 0,
+          "predicted": "SUNEHRA ISLAM",
+          "ground_truth": "SUNEHRA ISLAM"
+        },
+        "father_name": {
+          "exact_match": true,
+          "character_accuracy": 1.0,
+          "word_accuracy": 1.0,
+          "levenshtein_distance": 0,
+          "predicted": "শেখ সাইফুল ইসলাম",
+          "ground_truth": "শেখ সাইফুল ইসলাম"
+        },
+        "mother_name": {
+          "exact_match": false,
+          "character_accuracy": 0.0,
+          "word_accuracy": 0.0,
+          "levenshtein_distance": 11,
+          "predicted": "",
+          "ground_truth": "ছাইদা ইসলাম"
+        },
+        "date_of_birth": {
+          "exact_match": false,
+          "character_accuracy": 0.38095238095238093,
+          "word_accuracy": 0.0,
+          "levenshtein_distance": 10,
+          "predicted": "1998-09-11",
+          "ground_truth": "11 Sep 1998"
+        }
+      },
+      "overall_char_accuracy": 0.7301587301587302,
+      "overall_word_accuracy": 0.6666666666666666,
+      "overall_exact_match_rate": 0.6666666666666666
+    }
+  },
+  "winner": "nid_ocr"
+}

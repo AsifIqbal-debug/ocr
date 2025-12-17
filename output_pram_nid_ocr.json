@@ -1,0 +1,36 @@
+{
+  "nid_number": {
+    "value": "4183432626",
+    "confidence": 0.92,
+    "raw": "Promit Georgely NID No. 418 343 2626"
+  },
+  "name_bangla": {
+    "value": "প্রমিত গাঙ্গুলী",
+    "confidence": 0.72,
+    "raw": "প্রমিত গাঙ্গুলী"
+  },
+  "name_english": {
+    "value": "PRAMIT GANGULY",
+    "confidence": 0.92,
+    "raw": "PRAMIT GANGULY"
+  },
+  "father_name": {
+    "value": "অমল কুমার গাঙ্গুলী",
+    "confidence": 0.81,
+    "raw": "পিত অমল কুমার গাঙ্গুলী"
+  },
+  "mother_name": {
+    "value": "বন্দনা গাঙ্গুলী",
+    "confidence": 0.77,
+    "raw": "য়াতা বন্দনা গাঙ্গুলী"
+  },
+  "date_of_birth": {
+    "value": "1997-01-01",
+    "confidence": 0.95,
+    "raw": "Oate of Birth 01 Jan 1997"
+  },
+  "address": {
+    "full": null,
+    "confidence": 0.0
+  }
+}

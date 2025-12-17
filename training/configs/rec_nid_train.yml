@@ -1,0 +1,107 @@
+Global:
+  use_gpu: True
+  epoch_num: 200
+  log_smooth_window: 20
+  print_batch_step: 20
+  save_model_dir: ./checkpoints/nid_rec
+  save_epoch_step: 5
+  eval_batch_step:
+    - 0
+    - 500
+  cal_metric_during_train: True
+  pretrained_model: paddleocr://rec/multi_language_guide
+  checkpoints: null
+  save_inference_dir: null
+  infer_img: null
+  character_dict_path: ./training/configs/char_list.txt
+  max_text_length: 40
+  infer_mode: False
+  use_space_char: True
+  distributed: False
+
+Architecture:
+  model_type: rec
+  algorithm: SVTR_LCNet
+  Transform:
+    name: SVTR
+    dims: 120
+    depth: 3
+    hidden_dims: 120
+    use_guide: True
+  Backbone:
+    name: MobileNetV1Enhance
+    scale: 0.5
+    last_conv_stride: [1, 2]
+    last_pool_type: avg
+  Neck:
+    name: SequenceEncoder
+    encoder_type: rnn
+    hidden_size: 256
+  Head:
+    name: CTCHead
+    fc_decay: 1e-05
+
+Loss:
+  name: CTCLoss
+
+Optimizer:
+  name: Adam
+  beta1: 0.9
+  beta2: 0.999
+  lr:
+    learning_rate: 0.0005
+  regularizer:
+    name: "L2"
+    factor: 0.00001
+
+Train:
+  dataset:
+    name: SimpleDataSet
+    data_dir: ./training/data/raw
+    label_file_list:
+      - ./training/data/annotations/train_list.txt
+    transforms:
+      - DecodeImage:
+          img_mode: BGR
+          channel_first: False
+      - RecConAug:
+          prob: 0.3
+      - RecResizeImg:
+          image_shape: [3, 48, 320]
+      - KeepKeys:
+          keep_keys:
+            - image
+            - label
+            - length
+  loader:
+    shuffle: True
+    batch_size_per_card: 128
+    drop_last: True
+    num_workers: 4
+
+Eval:
+  dataset:
+    name: SimpleDataSet
+    data_dir: ./training/data/raw
+    label_file_list:
+      - ./training/data/annotations/val_list.txt
+    transforms:
+      - DecodeImage:
+          img_mode: BGR
+          channel_first: False
+      - RecResizeImg:
+          image_shape: [3, 48, 320]
+      - KeepKeys:
+          keep_keys:
+            - image
+            - label
+            - length
+  loader:
+    shuffle: False
+    drop_last: False
+    batch_size_per_card: 128
+    num_workers: 4
+
+Metric:
+  name: RecMetric
+  main_indicator: acc
